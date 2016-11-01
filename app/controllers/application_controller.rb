@@ -8,6 +8,7 @@ class ApplicationController < ActionController::Base
   def current_hour
     time = Time.new
     time.hour
+
   end
 
   def get_greeting
@@ -20,6 +21,5 @@ class ApplicationController < ActionController::Base
     end
     greeting
   end
-
 
 end

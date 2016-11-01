@@ -1,3 +1,4 @@
+
 manhattan = Scraper.new
 manhattan.insert_index_page_data("manhattan")
 
@@ -6,6 +7,7 @@ queens.insert_index_page_data("queens")
 
 brooklyn = Scraper.new
 brooklyn.insert_index_page_data("brooklyn")
+
 
 @show_page_scraper = Scraper.new
 
