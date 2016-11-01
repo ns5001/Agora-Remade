@@ -5,14 +5,14 @@ class ToursController < ApplicationController
   end
 
   def create
-    @tour = Tour.find_or_create_by(tour_params)
-    flash[:error] = @tour.errors.messages[:booked].first
+    tour = Tour.find_or_create_by(tour_params)
+    flash[:error] = tour.errors.messages[:booked].first
     redirect_to(:back)
   end
 
   def destroy
-    @tour = Tour.find_by_id(params[:id])
-    @tour.destroy
+    tour = Tour.find_by_id(params[:id])
+    tour.destroy
     user_path(current_user)
   end
 

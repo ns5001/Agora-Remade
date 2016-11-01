@@ -12,8 +12,10 @@ Rails.application.routes.draw do
   resources :users do
     resources :lists
     end
+    
+  resources :comments
 
    resources :tours, only:[:create, :update, :destroy, :show]
    resources :apartments
-   
+
 end

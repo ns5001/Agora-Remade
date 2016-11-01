@@ -1,6 +1,24 @@
-<h1><b><%=@greeting%> <%=current_user.name%>!</b></h1>
+<h1><b><%=@greeting%> <%=current_user.email%>!</b></h1>
 
-<%@apartments.each do |apartment| %>
-  <img src="<%=apartment.picture%>">
-  <a href="<%=apartment_path(apartment)%>"><h2><%= apartment.price%></h2></a>
+<% current_user.lists.each do |list| %>
+  <a href="/users/<%=current_user.id%>/lists/<%=list.id%>"class="w3-btn"><%=list.name%><%=link_to "x", delete_list_path(list)%></a>
+<%end%>
+
+
+<% if @apartments %>
+  <%@apartments.each do |apartment| %>
+    <img src="<%=apartment.picture%>">
+    <a href="<%=apartment_path(apartment)%>"><h2><%= apartment.price%></h2></a>
+    <%join_comments = ApartmentList.find_by(id:apartment.apartment_lists)%>
+    <%join_comments.comments.each do |comment| %>
+        <%=comment.text%> <a href='/comments/<%=comment.id%>/delete'>delete</a><br>
+    <%end%>
+  <% end %>
+  <%= form_for Comment.new do |f| %>
+    <%= f.hidden_field :list_id, value: @current_list.id %>
+    <%= f.hidden_field :apartment_id, value: apartment.id %>
+    <%= f.label :text %>
+    <%= f.text_field :text %>
+    <%= f.submit "Create Note"%>
+  <% end %>
 <% end %>

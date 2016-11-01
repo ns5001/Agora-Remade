@@ -13,21 +13,7 @@ class User < ApplicationRecord
      user.password = Devise.friendly_token[0,20]
    end
   end
+  
 
-  def list_to_display
-    if params[:list_id]
-      @current_list = self.lists.find_by_id(params[:list_id])
-    else
-      @current_list = self.lists.first
-    end
-      @current_list
-  end
-
-  def sort_apartments
-    list = list_to_display
-    @sorted_apartments = list.apartments.sort_by do |apartment|
-      apartment[:price_range]
-    end
-  end
 
 end
