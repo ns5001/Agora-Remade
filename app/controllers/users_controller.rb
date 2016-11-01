@@ -1,2 +1,5 @@
 class UsersController < ApplicationController
-end
+
+  def show
+    @greeting = get_greeting
+  end
