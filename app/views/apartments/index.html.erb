@@ -1,5 +1,3 @@
-<h1><b><%=@greeting%> <%=current_user.name%>!</b></h1>
-
 <%@apartments.each do |apartment| %>
   <img src="<%=apartment.picture%>">
   <a href="<%=apartment_path(apartment)%>"><h2><%= apartment.price%></h2></a>
