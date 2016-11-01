@@ -24,13 +24,13 @@ class Scraper < ApplicationRecord
        apartment = Apartment.new
        apartment.price = list.css("div").css(".apartmentRentRollupContainer").css("span").css(".altRentDisplay").text
        apartment.bedrooms = list.css("div").css(".apartmentRentRollupContainer").css("span").css(".unitLabel").text
-       apartment.pictures = list.css("div").css(".media").css("div").css(".item").first.values[1]
+       apartment.picture = list.css("div").css(".media").css("div").css(".item").first.values[1]
       begin
-       apartment.links = list.css("header").css(".placardHeader").css("a").first.values[1]
+       apartment.link = list.css("header").css(".placardHeader").css("a").first.values[1]
       rescue
-       apartment.links = "no show page"
+       apartment.link = "no show page"
       end
-       apartment.locations = list.css("div").css(".location").text
+       apartment.location = list.css("div").css(".location").text
        apartment.borough = @borough
        apartment.save
       end
@@ -39,8 +39,8 @@ class Scraper < ApplicationRecord
   #### show page
   def set_show_page(apartment)
 
-    if apartment.links && apartment.links != "" && apartment.links != "no show page"
-        @show_page = Nokogiri::HTML(open("#{apartment.links}"))
+    if apartment.link && apartment.link != "" && apartment.link != "no show page"
+        @show_page = Nokogiri::HTML(open("#{apartment.link}"))
     end
   end
 
