@@ -15,5 +15,5 @@ Rails.application.routes.draw do
 
    resources :tours, only:[:create, :update, :destroy, :show]
    resources :apartments
-
+   
 end
