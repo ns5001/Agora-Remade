@@ -13,8 +13,8 @@
       <%= link_to "My Portfolio", user_lists_path(current_user) %>
       <%= link_to "Log Out", destroy_user_session_path(current_user) %>
     <% else %>
-      <a class="page-scroll" data-toggle="modal" href="#aboutModal">Sign Up</a><br>
-      <a class="page-scroll" data-toggle="modal" href="#aboutModal2">Sign In</a>
+      <a href="#aboutModal">Sign Up</a><br>
+      <a href="#aboutModal2">Sign In</a>
     <% end %>
   </nav>
 
