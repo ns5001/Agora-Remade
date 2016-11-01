@@ -20,7 +20,7 @@ ActiveRecord::Schema.define(version: 20161101190620) do
   end
 
   create_table "apartments", force: :cascade do |t|
-    t.integer  "price"
+    t.string  "price"
     t.string   "location"
     t.string   "link"
     t.string   "picture"
