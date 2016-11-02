@@ -1,0 +1,8 @@
+
+<% if lists %>
+<% lists.each do |list| %>
+<%= link_to list.name, list_path(list) %> 
+<% end %>
+<% else %>
+Create a list to begin.
+<% end%>

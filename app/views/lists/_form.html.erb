@@ -1,4 +1,4 @@
-<%= form_for @list do |f|%>
+<%= form_for @list, url: user_lists_path(current_user) do |f| %>
   <%=f.text_field :name %>
   <%= f.submit %>
 <% end %>
