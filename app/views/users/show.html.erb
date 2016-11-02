@@ -1,8 +1,12 @@
 <h1><b><%=@greeting%> <%=current_user.email%>!</b></h1>
+<%= link_to 'create a new list', new_user_list_path(current_user)%> <br>
 
  <%= link_to "Show booked tours", tours_path %><br><br>
-<%= render partial: "lists/lists", locals: {lists: @lists} %>
-
+   <p>
+     Apartment Lists: <%= render partial: "lists/lists", locals: {lists: @lists} %>
+   </p>
 <br>
+    <p>
+      Top 3 listings:  
+    </p>
 <br>
-<%= link_to 'create a new list', new_user_list_path(current_user)%>

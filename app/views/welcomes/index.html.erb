@@ -1,16 +1,14 @@
-<%= render 'search' %>
+
+
+  <button onclick="myFunction()">Click me</button>
+<br>
+  Welcome to Agora, Find your dream apartment.
 
 
 
+  <script>
+  function myFunction() {
+      document.getElementById("this").value = "<%=fetch_location%>";
 
-<button onclick="myFunction()">Click me</button>
-
-
-
-
-<script>
-function myFunction() {
-    document.getElementById("this").value = "<%=fetch_location%>";
-
-}
-</script>
+  }
+  </script>

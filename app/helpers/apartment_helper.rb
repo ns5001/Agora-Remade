@@ -9,4 +9,7 @@ module ApartmentHelper
     Apartment.find(params[:id])
   end
 
+  def top_3_listings
+     Apartment.most_popular
+  end
 end
