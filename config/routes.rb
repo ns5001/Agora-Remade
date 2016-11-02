@@ -10,15 +10,16 @@ Rails.application.routes.draw do
   end
 
   resources :users do
-    # what does shallow do ?
     resources :lists, shallow: true
-    end
+  end
+
+  resources :comments
 
    resources :tours, only:[:create, :update, :destroy, :show]
    resources :apartments
 
+
  get '/lists/:id/delete' => "lists#destroy", as: "list_delete"
  get '/comments/:id/delete' => "comments#destroy"
-
 
 end
