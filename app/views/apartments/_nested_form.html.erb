@@ -1,15 +1,15 @@
 <%= form_for @apartment do |f| %>
-         Create New Note:
-         <%= f.fields_for :comments, Comment.new do |f| %>
+   Create New Note:
+   <%= f.fields_for :comments, Comment.new do |f| %>
+     <%= f.text_field :text %><br>
+   <%end%>
 
-           <%= f.text_field :text %><br>
-         <%end%>
-         Create New List:
-         <%= f.fields_for :lists, @apartment.lists.build do |list| %>
-           <%= list.hidden_field :user_id, value: current_user.id %>
-           <%= list.text_field :name %><br>
-         <% end %>
+   Create New List:
+   <%= f.fields_for :lists, @apartment.lists.build do |list| %>
+     <%= list.hidden_field :user_id, value: current_user.id %>
+     <%= list.text_field :name %><br>
+   <% end %>
 
-         <%= f.collection_check_boxes :list_ids, current_user.lists.all, :id, :name %>
-         <%= f.submit "Add Apartment" %>
-       <% end %>
+   <%= f.collection_check_boxes :list_ids, current_user.lists.all, :id, :name %>
+   <%= f.submit "Add Apartment" %>
+ <% end %>

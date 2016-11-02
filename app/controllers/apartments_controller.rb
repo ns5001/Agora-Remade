@@ -9,12 +9,9 @@ class ApartmentsController < ApplicationController
     @apartment = Apartment.find_by(id: params[:id])
   end
 
-  def update
-    @apartment = Apartment.find_by_id(params[:id])
-    @apartment = find_apartment
-  end
 
   def update
+    # binding.pry
     @apartment = find_apartment
     @apartment.update(apartment_params)
     flash[:error] = @apartment.errors.messages
@@ -31,8 +28,7 @@ class ApartmentsController < ApplicationController
         :name,
         :user_id
       ],
-      comment_attributes:[
-
+      comments_attributes:[
       :text
     ],
       list_ids: []
