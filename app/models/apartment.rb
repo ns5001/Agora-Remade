@@ -15,7 +15,7 @@ class Apartment < ApplicationRecord
     end
   end
 
-  def comments_attributes=(attr)
+  def comment_attributes=(attr)
    attr.values.each do |comment|
      if comment[:text].present?
        @comment =  Comment.create(text: comment[:text])

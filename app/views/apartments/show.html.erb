@@ -1,33 +1,5 @@
-<img src="<%=@apartment.picture %>"><br>
-<h1><%=@apartment.price %></h1>
-<h3><%=@apartment.location %></h3>
-<h4><%=@apartment.bedrooms %></h4>
-<p align="justify">
-  <%=@apartment.description%>
-</p>
-
-<p>
-  Size:
-  <%= @apartment.sqft%>
-</p>
-
-<h3><a href="<%=@apartment.link%>" target="_blank">Visit Original Listing</a></h3>
-
-<% if current_user %>
-  <%= form_for @apartment do |f| %>
-
-   Create New Note:
-    <%= f.fields_for Comment.new do |f| %>
-    <%= f.text_field :text %><br>
-   <%end%>
-
-    Create New List:
-     <%= f.fields_for :lists, @apartment.lists.build do |list| %>
-     <%= list.hidden_field :user_id, value: current_user.id %>
-     <%= list.text_field :name %><br>
-    <% end %>
-
-    <%= f.collection_check_boxes :list_ids, current_user.lists.all, :id, :name %>
-    <%= f.submit "Add Apartment" %>
-   <% end %>
-<% end %>
+<%= render 'apartment' %>
+<br>
+<br>
+<%= render 'nested_form' %>
+<h2><a href="<%=@apartment.link%>">Visit Original Listing</a></h2>

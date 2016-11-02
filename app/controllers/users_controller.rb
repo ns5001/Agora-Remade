@@ -1,9 +1,21 @@
 class UsersController < ApplicationController
+  before_action :authenticate_user!
+    include UserHelper
+
+  # def show
+  #   #from application helpers
+  #   @greeting = get_greeting
+  #   #from user helpers
+  #   @apartments = sort_apartments
+  # end
 
   def show
+    #from application helpers
     @greeting = get_greeting
-    @apartments = sort_apartments
+    #from user helpers
+    @lists = display_lists
   end
+
 
   def list_to_display
     if params[:list_id]
@@ -20,7 +32,7 @@ class UsersController < ApplicationController
       @sorted_apartments = list.apartments.sort_by do |apartment|
         apartment[:price_range]
       end
-    end 
+    end
   end
 
 end

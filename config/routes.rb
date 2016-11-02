@@ -10,9 +10,9 @@ Rails.application.routes.draw do
   end
 
   resources :users do
-    resources :lists
+    resources :lists, shallow: true
     end
-    
+
   resources :comments
 
    resources :tours, only:[:create, :update, :destroy, :show]

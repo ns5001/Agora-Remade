@@ -1,3 +1,4 @@
+require 'pry'
 class Scraper < ApplicationRecord
 
    def insert_index_page_data(borough)
@@ -22,6 +23,7 @@ class Scraper < ApplicationRecord
      listing = @page.css("div#placardContainer").css("article")
      listing.collect do |list|
        apartment = Apartment.new
+      #  binding.pry
        apartment.price = list.css("div").css(".apartmentRentRollupContainer").css("span").css(".altRentDisplay").text
        apartment.bedrooms = list.css("div").css(".apartmentRentRollupContainer").css("span").css(".unitLabel").text
        apartment.picture = list.css("div").css(".media").css("div").css(".item").first.values[1]
