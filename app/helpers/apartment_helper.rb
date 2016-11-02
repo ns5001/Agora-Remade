@@ -9,4 +9,9 @@ module ApartmentHelper
     Apartment.find(params[:id])
   end
 
+  def update_apartment
+    @apartment = find_apartment
+    @apartment.update(apartment_params)
+  end
+
 end

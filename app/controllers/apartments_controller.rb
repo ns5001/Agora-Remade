@@ -7,15 +7,13 @@ class ApartmentsController < ApplicationController
 
   def show
     @apartment = Apartment.find_by(id: params[:id])
-    
+
   end
 
 
   def update
-    # binding.pry
-    @apartment = find_apartment
-    @apartment.update(apartment_params)
-    flash[:error] = @apartment.errors.messages
+    update_apartment
+    flash[:error] = update_apartment.errors.messages
     flash[:message] = "Added to List"
     redirect_to(:back)
   end
