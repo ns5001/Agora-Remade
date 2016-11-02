@@ -1,9 +1,11 @@
 <h1><b><%=@greeting%> <%=current_user.email%>!</b></h1>
+<!--  if the user has apartments in his list it should return an array-->
 <% if @apartments.kind_of?(Array) %>
 <%@apartments.each do |apartment| %>
   <img src="<%=apartment.picture%>">
   <a href="<%=apartment_path(apartment)%>"><h2><%= apartment.price%></h2></a>
   <% end %>
 <% else %>
+<!--  other wise it will return a string -->
   <%=@apartments %>
 <%end%>
