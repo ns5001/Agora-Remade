@@ -16,12 +16,11 @@ Rails.application.routes.draw do
   resources :users do
     #Shallow prevents deep nesting. This way if we call a list path, Rails knows that we are calling users list path
     resources :lists, shallow: true
-    end
-
+  end
+  
    resources :comments
 
    resources :tours, only:[:create, :update, :destroy, :show]
    resources :apartments
-
 
 end

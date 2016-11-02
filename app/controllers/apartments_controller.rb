@@ -27,6 +27,7 @@ class ApartmentsController < ApplicationController
         :name,
         :user_id
       ],
+
       comments_attributes:[
       :text
     ],
