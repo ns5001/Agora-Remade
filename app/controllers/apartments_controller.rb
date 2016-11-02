@@ -10,12 +10,8 @@ class ApartmentsController < ApplicationController
   end
 
   def update
-    @apartment = Apartment.find_by_id(params[:id])
     @apartment = find_apartment
-  end
-
-  def update
-    @apartment = find_apartment
+    binding.pry
     @apartment.update(apartment_params)
     flash[:error] = @apartment.errors.messages
     flash[:message] = "Added to List"
@@ -31,9 +27,7 @@ class ApartmentsController < ApplicationController
         :name,
         :user_id
       ],
-
-      comment_attributes:[
-
+      comments_attributes:[
       :text
     ],
       list_ids: []

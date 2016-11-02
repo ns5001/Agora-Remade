@@ -9,17 +9,19 @@ Rails.application.routes.draw do
     get "/users/sign_out" => "devise/sessions#destroy"
   end
 
-
   get '/lists/:id/delete' => "lists#destroy", as: "list_delete"
-  get '/comments/:id/delete' => "comments#destroy"
+  get '/comments/:id/delete' => "comments#destroy", as: "comment_delete"
+  get '/apartment_lists/:id/delete' => "apartment_lists#destroy", as: "apartment_list_delete"
+
   resources :users do
-    #I have no idea what shallow does. but it works
+    #Shallow prevents deep nesting. This way if we call a list path, Rails knows that we are calling users list path
     resources :lists, shallow: true
     end
 
-  resources :comments
+   resources :comments
 
    resources :tours, only:[:create, :update, :destroy, :show]
    resources :apartments
+
 
 end

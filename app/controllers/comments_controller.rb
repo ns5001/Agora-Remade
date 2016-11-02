@@ -21,5 +21,6 @@ class CommentsController < ApplicationController
        :text
      ]
    )
+ end
 
 end

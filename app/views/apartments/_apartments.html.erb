@@ -2,4 +2,5 @@
 <br>
   <img src="<%=apartment.picture%>"><br>
   <%= link_to apartment.price, apartment_path(apartment)%> <br>
+  <%= link_to "Delete", apartment_list_delete_path(find_apartment_list(@list, apartment))%>
 <% end %>

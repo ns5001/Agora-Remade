@@ -1,5 +1,5 @@
-require 'pry'
 class ListsController < ApplicationController
+  include ListHelper
 
 
   def destroy

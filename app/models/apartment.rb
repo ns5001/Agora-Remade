@@ -2,8 +2,10 @@ class Apartment < ApplicationRecord
   has_many :apartment_lists
   has_many :lists, :through => :apartment_lists
   has_many :tours
+  has_many :comments, :through  => :lists
   scope :most_popular, -> { joins(:lists).group(:apartment_id).having("COUNT(*)").order('id DESC').limit(3) }
   scope :lowest_highest, -> {order('price ASC')}
+
 
   def lists_attributes=(attr)
     attr.values.each do |list|
@@ -15,7 +17,7 @@ class Apartment < ApplicationRecord
     end
   end
 
-  def comment_attributes=(attr)
+  def comments_attributes=(attr)
    attr.values.each do |comment|
      if comment[:text].present?
        @comment =  Comment.create(text: comment[:text])
