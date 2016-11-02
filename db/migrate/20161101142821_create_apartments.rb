@@ -1,7 +1,7 @@
 class CreateApartments < ActiveRecord::Migration[5.0]
   def change
     create_table :apartments do |t|
-      t.integer :price
+      t.string :price
       t.string :location
       t.string :link
       t.string :picture
