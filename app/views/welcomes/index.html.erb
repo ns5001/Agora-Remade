@@ -1,6 +1,4 @@
-<form action="/apartments" method="get">
-  <input id = "this" type="text" name="location" placeholder="Enter Borough">
-</form>
+<%= render 'search' %>
 
 
 
@@ -13,6 +11,6 @@
 <script>
 function myFunction() {
     document.getElementById("this").value = "<%=fetch_location%>";
-  
+
 }
 </script>
