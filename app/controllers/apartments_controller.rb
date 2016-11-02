@@ -7,6 +7,7 @@ class ApartmentsController < ApplicationController
 
   def show
     @apartment = Apartment.find_by(id: params[:id])
+    
   end
 
 

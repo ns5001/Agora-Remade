@@ -1,19 +1,19 @@
 class CommentsController < ApplicationController
+  include CommentHelper
 
   def create
-     comment = Comment.create(comments_params)
-     list = List.find(params['comment']['list_id'])
-     apartment = list.apartments.find(params['comment']['apartment_id'])
-     apartment_list = ApartmentList.find_by(apartment_id: apartment.id, list_id: list.id)
-     apartment_list.comments.create(text: params['comment']['text'])
-     redirect_to(:back)
+   create_comment
+   flash[:message] = "comment created"
+   redirect_to(:back)
   end
 
   def destroy
-   comment = Comment.find_by_id(params[:id])
-   comment.destroy
+   delete_comment
+   flash[:message] = "comment deleted"
    redirect_to(:back)
  end
+
+ private
 
  def comments_params
    params.require(:comment).permit(

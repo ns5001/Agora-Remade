@@ -10,6 +10,7 @@ Rails.application.routes.draw do
   end
 
   resources :users do
+    #used so nested list path is callable ex list_path will work only when shallow is used.
     resources :lists, shallow: true
   end
 

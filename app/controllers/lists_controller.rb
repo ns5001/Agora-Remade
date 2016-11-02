@@ -1,6 +1,6 @@
 require 'pry'
 class ListsController < ApplicationController
-  include ListHelper 
+  include ListHelper
 
   def new
     @list = List.new
@@ -13,6 +13,7 @@ class ListsController < ApplicationController
       flash[:error] = "List already exists"
     else
       current_user.lists.create(list_params)
+      flash[:message] = "List created"
     end
     redirect_to user_path(current_user)
   end
@@ -21,6 +22,7 @@ class ListsController < ApplicationController
   def destroy
     @list = List.find_by(id: params[:id])
     @list.destroy
+    flash[:message] = "List deleted"
     redirect_to(:back)
   end
 
