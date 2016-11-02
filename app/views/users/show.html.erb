@@ -1,6 +1,9 @@
-<h1><b><%=@greeting%> <%=current_user.name%>!</b></h1>
-
+<h1><b><%=@greeting%> <%=current_user.email%>!</b></h1>
+<% if @apartments.kind_of?(Array) %>
 <%@apartments.each do |apartment| %>
   <img src="<%=apartment.picture%>">
   <a href="<%=apartment_path(apartment)%>"><h2><%= apartment.price%></h2></a>
-<% end %>
+  <% end %>
+<% else %>
+  <%=@apartments %>
+<%end%>
