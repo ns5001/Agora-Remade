@@ -12,8 +12,9 @@ class ApartmentsController < ApplicationController
 
 
   def update
-    update_apartment
-    flash[:error] = update_apartment.errors.messages
+    apartment = find_apartment
+    apartment.update(apartment_params)
+    flash[:error] = apartment.errors.messages
     flash[:message] = "Added to List"
     redirect_to(:back)
   end
