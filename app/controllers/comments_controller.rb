@@ -1,14 +1,16 @@
 class CommentsController < ApplicationController
-  include CommentHelper
+
 
   def create
-   create_comment
+  # binding.pry
+   Comment.create(comments_params)
    flash[:message] = "comment created"
    redirect_to(:back)
   end
 
   def destroy
-   delete_comment
+    comment = Comment.find_by_id(params[:id])
+    comment.destroy
    flash[:message] = "comment deleted"
    redirect_to(:back)
  end
@@ -16,11 +18,7 @@ class CommentsController < ApplicationController
  private
 
  def comments_params
-   params.require(:comment).permit(
-     attributes:[
-       :text
-     ]
-   )
-end
+   params.require(:comment).permit(:text, :apartment_list_id)
+ end
 
 end

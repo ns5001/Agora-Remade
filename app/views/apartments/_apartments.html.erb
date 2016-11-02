@@ -3,6 +3,9 @@
   <img src="<%=apartment.picture%>"><br>
   <%= link_to apartment.price, apartment_path(apartment)%> <br>
   <% if @list %>
+    <%= render partial: 'comments/comments', locals:{comments: find_comments(@list,apartment)}%>
   <%= link_to "Delete apartment", apartment_lists_delete_path(find_apartment_list(@list ,apartment)) %>
-  <% end %>
+  <%= render partial:'comments/form', locals: {apartment_list_id: find_apartment_list(@list ,apartment)}%>
+ <% end %>
+
 <% end %>

@@ -6,4 +6,13 @@ module ListHelper
     apartment_list.ids
   end
 
+# finds comments relating to a specific apartment
+  def find_comments(list, apartment)
+    apartment_list = ApartmentList.find_by(list_id:list.id, apartment_id: apartment.id)
+    apartment_list.comments
+  end
+
+
+
+
 end

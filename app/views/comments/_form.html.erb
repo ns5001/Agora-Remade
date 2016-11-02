@@ -1,0 +1,5 @@
+<%= form_for Comment.new do |f| %>
+ <%= f.text_field :text %><br>
+ <%= f.hidden_field :apartment_list_id, value: apartment_list_id %>
+ <%= f.submit %>
+<% end %>

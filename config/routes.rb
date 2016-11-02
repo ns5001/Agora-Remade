@@ -16,7 +16,7 @@ Rails.application.routes.draw do
 
   resources :comments
 
-   resources :tours, only:[:create, :update, :destroy, :show]
+   resources :tours, only:[:create, :update, :destroy, :show, :index]
    resources :apartment_lists
    resources :apartments
 

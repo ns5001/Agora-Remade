@@ -4,6 +4,10 @@ class ToursController < ApplicationController
     Tour.new
   end
 
+  def index
+    @tours = current_user.tours
+  end
+
   def create
     tour = Tour.find_or_create_by(tour_params)
     flash[:error] = tour.errors.messages[:booked].first
