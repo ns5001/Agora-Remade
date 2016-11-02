@@ -1,4 +1,4 @@
-<%@apartments.each do |apartment| %>
+<%apartments.each do |apartment| %>
 <br>
   <img src="<%=apartment.picture%>"><br>
   <%= link_to apartment.price, apartment_path(apartment)%> <br>

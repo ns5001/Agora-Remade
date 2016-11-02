@@ -9,7 +9,11 @@ Rails.application.routes.draw do
     get "/users/sign_out" => "devise/sessions#destroy"
   end
 
+
+  get '/lists/:id/delete' => "lists#destroy", as: "list_delete"
+  get '/comments/:id/delete' => "comments#destroy"
   resources :users do
+    #I have no idea what shallow does. but it works
     resources :lists, shallow: true
     end
 

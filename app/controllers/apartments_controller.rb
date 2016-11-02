@@ -6,19 +6,16 @@ class ApartmentsController < ApplicationController
   end
 
   def show
-
     @apartment = Apartment.find_by(id: params[:id])
   end
 
   def update
     @apartment = Apartment.find_by_id(params[:id])
-
     @apartment = find_apartment
   end
 
   def update
     @apartment = find_apartment
-
     @apartment.update(apartment_params)
     flash[:error] = @apartment.errors.messages
     flash[:message] = "Added to List"
@@ -27,7 +24,6 @@ class ApartmentsController < ApplicationController
 
 
   private
-
 
   def apartment_params
     params.require(:apartment).permit(
