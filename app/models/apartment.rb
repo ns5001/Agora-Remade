@@ -6,6 +6,7 @@ class Apartment < ApplicationRecord
   scope :lowest_highest, -> {order('price ASC')}
 
   def lists_attributes=(attr)
+
     attr.values.each do |list|
       if list[:name].present?
         @list = List.find_or_create_by(name:list['name'])
@@ -29,5 +30,6 @@ class Apartment < ApplicationRecord
      end
    end
   end
+
 
 end
