@@ -1,1 +1,4 @@
-<%= render 'apartments/apartments' local{:apartments : }%>
+<% if @list %>
+  <!-- find out why we need to call specfically call partial -->
+<%= render partial: 'apartments/apartments', locals: {apartments: @list.apartments}%>
+<% end %>

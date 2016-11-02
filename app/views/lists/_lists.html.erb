@@ -1,7 +1,8 @@
 
 <% if lists %>
 <% lists.each do |list| %>
-<%= link_to list.name, list_path(list) %> 
+<%= link_to list.name, list_path(list) %>
+<%= link_to "delete", list_delete_path(list) %>
 <% end %>
 <% else %>
 Create a list to begin.

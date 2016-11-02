@@ -18,14 +18,14 @@ class ApartmentsController < ApplicationController
   end
 
   private
-  
+
   def apartment_params
     params.require(:apartment).permit(
       lists_attributes:[
         :name,
         :user_id
       ],
-      commnet_attributes:[
+      comment_attributes:[
 
       :text
     ],
