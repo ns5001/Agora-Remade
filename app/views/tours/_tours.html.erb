@@ -1,0 +1,5 @@
+<% @tours.each do |tour| %>
+<img src="<%= tour.apartment.picture %>" /> <br>
+<%= tour.booked %>
+<%= link_to "Delete Tour", delete_tour_path(tour) %>
+<% end %>

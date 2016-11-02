@@ -1,8 +1,5 @@
 class ToursController < ApplicationController
 
-  def new
-    Tour.new
-  end
 
   def index
     @tours = current_user.tours
@@ -10,14 +7,19 @@ class ToursController < ApplicationController
 
   def create
     tour = Tour.find_or_create_by(tour_params)
+
     flash[:error] = tour.errors.messages[:booked].first
+    if !flash[:error]
+      flash[:message] = "Tour successfully booked."
+    end
     redirect_to(:back)
   end
 
   def destroy
     tour = Tour.find_by_id(params[:id])
     tour.destroy
-    user_path(current_user)
+    flash[:message] = "Tour removed from list"
+    redirect_to(:back)
   end
 
   private

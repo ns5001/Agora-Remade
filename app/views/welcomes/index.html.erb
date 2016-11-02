@@ -1,3 +1,18 @@
 <form action="/apartments" method="get">
-  <input type="text" name="location" placeholder="Enter Borough">
+  <input id = "this" type="text" name="location" placeholder="Enter Borough">
 </form>
+
+
+
+
+<button onclick="myFunction()">Click me</button>
+
+
+
+
+<script>
+function myFunction() {
+    document.getElementById("this").value = "<%=fetch_location%>";
+  
+}
+</script>

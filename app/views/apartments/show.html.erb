@@ -4,7 +4,16 @@
 <%= render 'nested_form' %>
 <br>
 <br>
-<%= render 'tours/tour' %> 
+<%= render 'tours/tour' %>
 <br>
 <h2><a href="<%=@apartment.link%>">Visit Original Listing</a></h2>
-<
+
+<br>
+<iframe
+ width="270"
+ height="300"
+ frameborder="0" style="border:0"
+ src="https://www.google.com/maps/embed/v1/place?key=AIzaSyCrFym4iM3Lnh6TGX4QNB_jZcpCIDE33Fk
+   &q=<%=@apartment.location%>" allowfullscreen>
+</iframe>
+<br>

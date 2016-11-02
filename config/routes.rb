@@ -16,7 +16,7 @@ Rails.application.routes.draw do
 
   resources :comments
 
-   resources :tours, only:[:create, :update, :destroy, :show, :index]
+   resources :tours, only:[:create, :destroy, :index, :delete]
    resources :apartment_lists
    resources :apartments
 
@@ -24,5 +24,6 @@ Rails.application.routes.draw do
  get '/lists/:id/delete' => "lists#destroy", as: "list_delete"
  get '/comments/:id/delete' => "comments#destroy", as:"comment_delete"
  get '/apartment_lists/:id/delete' => "apartment_lists#destroy", as:"apartment_lists_delete"
+ get '/tours/:id' => "tours#destroy", as: "delete_tour"
 
 end
